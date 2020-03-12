@@ -1,0 +1,128 @@
+#childes database info
+childes_db:
+    dbname: "childes"
+    host: "localhost"
+    username: "childes"
+    password: "childes"
+
+# database where results are stored    
+responses_db:
+    dbname: "even-childes"
+    host: "localhost"
+    username: "childes"
+    password: "childes"
+
+# which token/utterance
+# columns to include in output data?
+token_columns:
+    - "part_of_speech"
+    - "stem"
+
+utterance_columns:
+   - "id"
+   - "speaker_id"
+   - "utterance_order"
+   - "transcript_id"
+   - "gloss"
+   - "num_tokens"
+   - "stem"
+   - "part_of_speech"
+   - "speaker_code"
+   - "speaker_name"
+   - "speaker_role"
+   - "target_child_age"
+   - "target_child_name"
+   - "target_child_sex"
+   - "type"
+   - "media_end"
+   - "media_start"
+   - "media_unit"
+   - "num_morphemes"
+   - "corpus_name"
+
+#search parameters    
+search:    
+    #which childes collections to look in?
+    collection:
+        - "Eng-NA"
+    #which roles to search for? 
+    #(here is where you would change things if you wanted to look at child-directed speech, for instance)
+    role:
+        - "Target_Child"
+    #which tokens to search for?      
+    token:
+        - "even"
+        - "especially"
+
+#list of people for the enterers field
+enterers:
+    - "Enterer1"
+    - "Enterer2"
+
+#here's where you put all the questions you're asking
+#right now three types are allowed, checkbox, select, and text
+#radio buttons cause weird issues so those aren't supported now.
+#select requires a choices field, obviously
+#the IDs that you use for the fields shouldn't contain spaces or anything,
+#but underscores are fine
+fields:
+    irrel:
+        type: "checkbox"
+        label: "Irrelevant/Repetition"
+    embed:
+        type: "checkbox"
+        label: "Embedded Even"
+    embed_assoc:
+        type: "checkbox"
+        label: "Embedded Associate"
+    compar:
+        type: "checkbox"
+        label: "Comparative"   
+    neg_pres:
+        type: "select"
+        label: "Negation Present?"
+        choices:
+            - "No"
+            - "Yes"
+            - "Unclear"
+    neg_even:
+        type: "select"
+        label: "Negation/Even Order?"
+        choices:
+            - "N/A"
+            - "Neg-Even"
+            - "Even-Neg"
+            - "Unclear"
+    sent_neg:
+        type: "select"
+        label: "Sentential Negation?"
+        choices:
+            - "No"
+            - "Yes"
+            - "Unclear"
+    position:
+        type: "select"
+        label: "Syntactic Position"
+        choices:
+            - "Pre-Subject"
+            - "Post-Subject"
+            - "Unclear"
+    focus:
+        type: "select"
+        label: "Focus Associate"
+        choices:
+            - "Subject"
+            - "Object"
+            - "Verb"
+            - "Adjunct"
+            - "Unclear"
+    likely:
+       type: "select"
+       label: "Likelihood"
+       choices:
+           - "Most-likely"
+           - "Least-likely"
+           - "Unclear"
+    comment:
+       type: "text"
+       label: "Comments"
