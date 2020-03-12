@@ -40,5 +40,16 @@ TODO: Expand configuration walkthrough.
 
 ### Citing childes-coder
 
+Please cite this github repository in publications which use childes-coder. A suggested BibTeX entry is below:
 
-
+```
+@misc{childes-coder,
+    author       = {Yadav Gowda},
+    title        = {{childes-coder: Utility for coding data from CHILDES corpora}},
+    month        = mar,
+    year         = 2020,
+    version      = {0.1},
+    publisher    = {Github},
+    url          = {https://github.com/tlonic/childes-coder}
+    }
+```
