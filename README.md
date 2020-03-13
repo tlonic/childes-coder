@@ -1,6 +1,6 @@
 # childes-coder
 
-childes-coder is a utility for coding data from [CHILDES](https://childes.talkbank.org/) corpora. It is written in R, using the [shiny](https://shiny.rstudio.com/) package, and relies on [childes-db](http://childes-db.stanford.edu/).
+childes-coder is a utility for coding data from [CHILDES](https://childes.talkbank.org/) corpora. It is written in R, using the [shiny](https://shiny.rstudio.com/) package, and relies on [childes-db](http://childes-db.stanford.edu/). Try a [demo of childes-coder](https://childes-coder.shinyapps.io/childes-coder/). To keep things running quickly, the demo version only looks at the tokens in a single corpus.
 
 ![Screenshot of childes-coder](https://github.com/tlonic/childes-coder/raw/master/images/screenshot.png)
 
