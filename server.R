@@ -71,7 +71,8 @@ function(input, output, session) {
   })
   
   metadata <- reactiveValues(initialized = FALSE,
-                             unsaved_changes = FALSE)
+                             unsaved_changes = FALSE,
+                             new_responses = TRUE)
  
   output$enterer_panel <- renderUI({
   validateLibraries()
@@ -188,6 +189,9 @@ function(input, output, session) {
     validateLibraries()
     validateConfig()
     validate(needsChildes, needsResponses)
+    if (metadata$new_responses) {
+        metadata$new_responses <- FALSE
+    }
     responses <- getResponseTable(childes_pool, responses_pool)
     validate(need(nrow(responses) > 0, "No responses entered yet."))
     responses$token_id <-
@@ -279,6 +283,7 @@ function(input, output, session) {
   observeEvent(input$save, {
     saveData(formData(), responses_pool)
     metadata$unsaved_changes <- FALSE
+    metadata$new_responses <- TRUE
     showNotification("Input saved.")
   })
   
