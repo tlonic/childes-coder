@@ -261,7 +261,7 @@ getResponseTable <- function(childesConn, responsesConn) {
 }
 
 getTokenTable <- function(childesConn) {
-  tokens <- sorted_search_tokens[unique(c(config$token_columns, "token_id"))]
+  tokens <- sorted_search_tokens[unique(c(config$token_columns, "id"))]
   
   colnames(tokens)[colnames(tokens) == "id"] <- "token_id"
   
