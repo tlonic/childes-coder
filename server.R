@@ -189,6 +189,7 @@ function(input, output, session) {
     validateConfig()
     validate(needsChildes, needsResponses)
     responses <- getResponseTable(childes_pool, responses_pool)
+    validate(need(nrow(responses) > 0, "No responses entered yet."))
     responses$token_id <-
       paste0(
         "<a onclick='Shiny.onInputChange(\"token_change\",",
