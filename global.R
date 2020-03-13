@@ -31,15 +31,24 @@ shinyjs.init = function() {
 };
 '
 
-  
+
 childes_pool <- try(dbPool(
-  drv = RSQLite::SQLite(), 
-  dbname = "childes.sqlite"))
+  drv = RMySQL::MySQL(),
+  dbname = config$childes_db$dbname,
+  host = config$childes_db$host,
+  username = config$childes_db$username,
+  password = config$childes_db$password
+))
+try(dbGetQuery(childes_pool, "SET NAMES utf8"))
+
 
 responses_pool <- try(dbPool(
-  drv = RSQLite::SQLite(),
-  dbname = "responses.sqlite"
-  ))
+  drv = RMySQL::MySQL(),
+  dbname = config$responses_db$dbname,
+  host = config$responses_db$host,
+  username = config$responses_db$username,
+  password = config$responses_db$password
+))
 
 onStop(function() {
   poolClose(childes_pool)
